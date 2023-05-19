@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="shortcut icon" href="Imagenes/flaticon.png">
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>El Gran Baúl</h1>
+        <div class="header-logo"><a href="Proyecto_TPO.html"><img src="Imagenes/logo_baul.png" alt="logo"></a></div>
+        <nav class="header-menubar">
+            <ul>
+                <li><a href="Proyecto_TPO.html">Inicio</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="ingresos.html">Ingresos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <!-------- Voy a hacer otro Formulario (clase del profe)------ -->
+        <h1>Contactanos</h1>
+        <form action="" class="formulario" name="formulario" method="get">
+            
+
+            <!-- NOmbre -->
+            <div class="formulario_nombre">
+                <label for="nombre" class="formulario_label">Nombre</label>
+                <div class="formulario_input">
+                    <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" maxlength="30" required>
+                </div>
+            </div>
+            <!-- Apellido -->
+            <div class="formulario_apellido">
+                <label for="apellido" class="formulario_label">Apellido</label>
+                <div class="formulario_input"></div>
+                    <input type="text" name="apellido" id="apellido" placeholder="Tu apellido" maxlength="30" required>
+                </div>
+            </div>
+            <!-- DNI -->
+            <div class="formulario_dni">
+                <label for="dni" class="formulario_label">DNI</label>
+                <div class="formulario_input"></div>            
+                    <input type="number" placeholder="12345678" required>
+                </div>
+            </div>
+
+            <!-- Telefono -->
+            <div class="formulario_telefono">
+                <label for="telefono" class="formulario_label">Teléfono</label>
+                <div class="formulario_input"></div>              
+                    <input type="number" name="telefono" id="telefono" placeholder="02984223344">
+                </div>
+            </div>
+
+            <!-- Correo electronico -->
+            <div class="formulario_mail">
+                <label for="correo" class="formulario_label">Correo electrónico</label>
+                <div class="formulario_input"></div>             
+                    <input type="email" name="correo" id="correo" placeholder="correo@correo.com" required>
+                </div>
+            </div>
+
+            <!-- Terminos -->
+            <div class="formulario_terminos"></div>
+                <label for="" class="formulario_label">
+                    <div class="formulario_input">
+                    <input type="checkbox" name="terminos" id="terminos" required>Acepto los términos y condiciones 
+                    </div>           
+                </label>
+            </div>
+
+            <!-- Boton Enviar -->
+            <div class="formulario_submit">
+                <!-- <label for="" class="formulario_label"> -->
+                    <button type="submit" class="formulario_enviar">Enviar</button>
+                <!-- </label> -->
+            </div>
+                            
+        </form>
+
+        <script src="contacto.js"></script>
+        
+    </main>
+
+
+    <footer>
+        <h4>2023. Todos los derechos reservados.</h4>
+        Nombre y apellido del creador
+    </footer>
+    
+</body>
+
+</html>

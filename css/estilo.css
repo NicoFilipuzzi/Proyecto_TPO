@@ -1,0 +1,263 @@
+*{
+    /* padding: 0; -- Le sacó el padding para que el menu quede adentro del header */
+    box-sizing: border-box;
+}
+h1{
+    font-weight: bold;
+    font-size: 40px;
+    color: greenyellow;
+    text-align: center;
+    padding: 10px;
+
+    
+}
+
+html{
+    font-size: 1rem;
+    height: 100%;
+/* Voy a sacar todos los border comentándolos */
+}
+body, header, main, footer{
+    /* border: 3px green solid; */
+    min-height: 50px;
+    margin: 0.5rem;
+    min-width: 400px;
+}
+body{
+    background-color: aquamarine;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* El over-flow: auto se adapta al contenido y evita el desbordamiento */
+main{
+    min-height: 200px;
+    overflow: auto;
+    background-color: white;
+}
+
+header{
+    background: white;
+    box-shadow: 0 0 0.5 rgb(83 78 76 / 50%);
+}
+footer{
+    background: white;
+}
+
+/* Contenido principal */
+/* Los DIV son hijos directos del main: van a tener este estilo = (main>div) */
+main>div{
+    /* border: 2px yellow solid; */
+    min-height: 180px;
+    margin: 0.5rem;
+    height: auto;
+    float: left; 
+    width: 65%; 
+
+}
+
+main>aside{
+    /* border: 2px blue solid; */
+    min-height: 180px;
+    min-width: 30%;
+    margin: 0.5rem;
+    float: left;
+    width: auto;
+}
+
+.secciones{
+    /* border: 2px greenyellow solid; */
+    min-height: 50px;
+    margin: 0.5rem;
+}
+/* Le da estilo a los article que están adentro de las section */
+.secciones article{
+    /* border: 2px purple solid; */
+    margin: 0.5rem;
+    min-height: 20px;
+}
+
+/* menu */
+/* le quito el estilo al menu para sacarle los puntos (o items) */
+.header-logo{
+    width: auto;
+    display: inline-block;
+    margin: 0.5rem;
+}
+.header-menubar{
+    left: auto;
+    position: relative;
+    top: auto;
+    width: auto;
+    display: inline-block;
+    margin: 0.5rem 0 0.5rem 1rem; 
+}
+
+.header-menubar ul{
+    list-style: none;
+}
+
+/* lista del menu */
+/* float: left= hace que los elementos no funcionen en bloque, sino se ponen en forma horizontal */
+.header-menubar li{
+    float: left;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0.5rem 0;
+    /* padding: 0.5rem; */
+    
+}
+/* En el menu, a todos los hipervinulos (a) sacale la decoracion (el subrayado a 
+Inicio, Tienda, etc) con text-decoration: none */
+.header-menubar a {
+    text-decoration: none;
+    color: black;
+}
+/* Al menu le aplico esta pseudoclase (a:hover) para que la palabra se ponga violeta cuando paso
+el cursor por arriba */
+.header-menubar a:hover{
+    color: blueviolet;
+}
+
+/* ---------------Acá voy a hacer la pagina Tienda con Grid ----------------*/
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+
+    /* Con grid-Area defino cuántas columnas y filas quiero. (ej:3 columnas y 4 filas) */
+    grid-template-areas: "header header header"
+                         "contenido contenido sidebar"
+                         "widget-1 widget-2 sidebar"
+                         "footer footer footer";
+                         
+
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.contenedor .header{
+    background-color: white;    
+    grid-area: header;
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    /* Con el -1 en grid-column-end me aseguro que vaya hasta la ultima linea(por si no sabemos cuantas columnas hay) */
+}
+
+.contenedor .contenido{
+    grid-area: contenido;
+    /* grid-column: span 2; */
+}
+
+.contenedor .sidebar{
+    grid-column: 3 / 4;
+    background-color: orange;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: sidebar;    
+    /* grid-row: span 2; */
+    /* el span 2 en Grid-row hace que el sidebar ocupe 2 filas */
+}
+
+.contenedor .widget-1,
+.contenedor .widget-2 {
+    background-color: blueviolet;
+    color: white;
+    height: 100px;
+    text-align: center;
+    /* Queda justificado al medio sin el flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor .widget-1{
+    grid-area: widget-1;
+}
+
+.contenedor .widget-2{
+    grid-area: widget-2;
+}
+
+.contenedor .footer{
+    background-color: white;
+    
+    grid-area: footer;
+    /* grid-column: span 3; */
+}
+
+/* Ahora vamos hacer responsiva la pagina Tienda con los @media queries */
+@media screen and (max-width: 768px){
+    .contenedor{
+        grid-template-areas: "header header header"
+                            "contenido contenido contenido"
+                            "sidebar sidebar sidebar"
+                            "widget-1 widget-1 widget-2"
+                            "footer footer footer";
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor{
+        grid-template-areas: "header header header"
+                            "contenido contenido contenido"
+                            "sidebar sidebar sidebar"
+                            "widget-1 widget-1 widget-2"
+                            "footer footer footer";
+    }
+    
+}
+
+/* ---------Estilo del formulario "Contacto"------- */
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.formulario_label{
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+.formulario_enviar{
+    
+    background: black;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    align-items: center;
+    
+}
+.formulario_terminos,
+.formulario_submit{
+    grid-column: span 2;
+    
+}
+@media screen and (max-width: 800px) {
+    .formulario{
+        grid-template-columns: 1fr;
+    }
+    .formulario_terminos,
+    .formulario_submit{
+        grid-column: 1;
+    }
+    .formulario_enviar{
+        width: 100%;
+    }
+
+    
+}
