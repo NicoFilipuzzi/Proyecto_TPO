@@ -5,7 +5,8 @@
 h1{
     font-weight: bold;
     font-size: 40px;
-    color: greenyellow;
+    color: white;
+    background-color: #49793d;
     text-align: center;
     padding: 10px;
 
@@ -200,6 +201,17 @@ el cursor por arriba */
 }
 
 /* Ahora vamos hacer responsiva la pagina Tienda con los @media queries */
+@media screen and (max-width: 992px) {
+    .contenedor{
+        grid-template-areas: "header header header"
+                            "contenido contenido contenido"
+                            "sidebar sidebar sidebar"
+                            "widget-1 widget-1 widget-2"
+                            "footer footer footer";
+    }
+    
+}
+
 @media screen and (max-width: 768px){
     .contenedor{
         grid-template-areas: "header header header"
@@ -221,7 +233,58 @@ el cursor por arriba */
     
 }
 
-/* ---------Estilo del formulario "Contacto"------- */
+/* -----Voy a hacer la animacion en h3 de Tienda---- */
+
+.contenido h3{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    animation-name: cambiarColor;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cambiarColor{
+    from {background-color: aqua;}
+    to {background-color: #49793d;}
+}
+
+/* ----Estilos de las tarjetas----- */
+.sweter{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #727272;
+    margin: 15px;
+    background-color:#ffff00;
+}
+
+.sweter img{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.textocard{
+    padding: 10px;
+}
+
+.sweter a{
+    color: #5332f7;
+    font-size: 23px;
+    text-decoration: none;
+    background-color: #80b371;
+    padding: 5px;
+    margin: px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+/* -------------Estilo del formulario "Contacto"----------- */
 .formulario{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -257,7 +320,6 @@ el cursor por arriba */
     }
     .formulario_enviar{
         width: 100%;
-    }
-
-    
+    }   
 }
+
