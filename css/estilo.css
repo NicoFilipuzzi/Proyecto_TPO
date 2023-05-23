@@ -12,7 +12,14 @@ h1{
 
     
 }
-
+h2{
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    background-color: #49793d;
+    text-align: center;
+    padding: 10px;
+}
 html{
     font-size: 1rem;
     height: 100%;
@@ -132,8 +139,8 @@ el cursor por arriba */
 
     /* Con grid-Area defino cuántas columnas y filas quiero. (ej:3 columnas y 4 filas) */
     grid-template-areas: "header header header"
-                         "contenido contenido sidebar"
-                         "widget-1 widget-2 sidebar"
+                         "contenido contenido contenido"
+                         "contenido contenido contenido"
                          "footer footer footer";
                          
 
@@ -142,7 +149,6 @@ el cursor por arriba */
 .contenedor > div,
 .contenedor .header,
 .contenedor .contenido,
-.contenedor .sidebar,
 .contenedor .footer {
     background-color: white;
     padding: 20px;
@@ -162,42 +168,11 @@ el cursor por arriba */
     /* grid-column: span 2; */
 }
 
-.contenedor .sidebar{
-    grid-column: 3 / 4;
-    background-color: orange;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-area: sidebar;    
-    /* grid-row: span 2; */
-    /* el span 2 en Grid-row hace que el sidebar ocupe 2 filas */
-}
-
-.contenedor .widget-1,
-.contenedor .widget-2 {
-    background-color: blueviolet;
-    color: white;
-    height: 100px;
-    text-align: center;
-    /* Queda justificado al medio sin el flex */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.contenedor .widget-1{
-    grid-area: widget-1;
-}
-
-.contenedor .widget-2{
-    grid-area: widget-2;
-}
-
 .contenedor .footer{
     background-color: white;
     
     grid-area: footer;
-    /* grid-column: span 3; */
+    grid-column: span 3;
 }
 
 /* Ahora vamos hacer responsiva la pagina Tienda con los @media queries */
